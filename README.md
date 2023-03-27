@@ -1,4 +1,5 @@
-# sms_messageboard
+# Python and Twillio SMS Message Board.
+
 A SMS based message board, using Twillio and Python.
 
 ![Twillio+Python SMS Messag2e Board](https://user-images.githubusercontent.com/66118809/227960360-05c6bed0-389b-4176-b4c3-42e81a875276.png)
