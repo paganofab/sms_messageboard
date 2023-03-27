@@ -1,0 +1,91 @@
+body {
+  background-image: url("http://res.cloudinary.com/cspaveljb/image/upload/v1499110969/cork_w2tt25.jpg");
+  background-repeat: repeat;
+}
+
+.post-it-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 10px;
+  }
+
+.post-it-note {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.post-it-note:nth-child(1n) {
+  background-color: #ffd6b6;
+  transform: rotate(-2deg) skew(3deg, -3deg);
+  margin: 15px;
+}
+
+.post-it-note:nth-child(2n) {
+  background-color: #ffe6cc;
+  transform: rotate(2deg) skew(-5deg, 5deg);
+  margin: 25px;
+}
+
+.post-it-note:nth-child(3n) {
+  background-color: #ffffcc;
+  transform: rotate(-5deg) skew(-3deg, 3deg);
+  margin: 20px;
+}
+
+.post-it-note:nth-child(4n) {
+  background-color: #d9ead3;
+  transform: rotate(-8deg) skew(-6deg, 6deg);
+  margin: 30px;
+}
+
+.post-it-note:nth-child(5n+3) {
+  background-color: #b7dde8;
+  transform: rotate(-1deg) skew(-3deg, 3deg);
+  margin: 20px;
+}
+
+.pin {
+	border-radius: 50%;
+	width: 20px;
+	height: 20px;
+	-webkit-box-shadow: 0 3px 6px rgba(0,0,0,.55);
+	-moz-box-shadow: 0 3px 6px rgba(0,0,0,.55);
+	box-shadow: 0 3px 6px rgba(0,0,0,.55);
+	margin: 0 auto;
+	margin-top: 2px;
+}
+.post-it-note:nth-child(1n) .pin {
+	background-image: -moz-radial-gradient(35px 35px 35deg, circle cover, red 50%, black 100%);
+	background-image: -webkit-radial-gradient(35px 35px, circle cover, red, black);
+	background-image: radial-gradient(red 50%, black 100%);
+
+}
+
+.post-it-note:nth-child(6n) .pin {
+	background-image: -moz-radial-gradient(45px 45px 45deg, circle cover, orange 50%, black 100%);
+	background-image: -webkit-radial-gradient(45px 45px, circle cover, yellow, orange);
+	background-image: radial-gradient(orange 50%, black 100%);
+}
+
+.post-it-note:nth-child(3n) .pin {
+	background-image: -moz-radial-gradient(45px 45px 45deg, circle cover, yellow 50%, black 100%);
+	background-image: -webkit-radial-gradient(45px 45px, circle cover, yellow, black);
+	background-image: radial-gradient(yellow 50%, black 100%);
+}
+
+.post-it-note:nth-child(5n+3) .pin,
+.post-it-note:last-child .pin {
+	background-image: -moz-radial-gradient(45px 45px 45deg, circle cover, blue 50%, white 100%);
+	background-image: -webkit-radial-gradient(45px 45px, circle cover, blue, white);
+	background-image: radial-gradient(blue 50%, white 100%);
+}
+.text {
+	margin: 10px;
+	font-family: 'The Girl Next Door', cursive;
+}

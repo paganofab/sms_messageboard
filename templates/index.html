@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link
+      href="http://fonts.googleapis.com/css?family=The+Girl+Next+Door"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
+
+    <title>Messages</title>
+  </head>
+  <body>
+    <div class="grid-container" id="frame">
+      {% for message in messages %}
+      <div class="post-it-note">
+        <div class="pin"></div>
+        <p><strong>De:</strong> {{ message[2] }}</p>
+        <p class="text">{{ message[1] }}</p>
+        <form
+          method="post"
+          action="{{ url_for('delete', message_id=message[0]) }}"
+          method="post"
+        >
+          <button type="submit">Delete</button>
+        </form>
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+  <script>
+    $(document).ready(function () {
+      // This code runs when the page is loaded
+      var url = window.location.href; // Get the current URL
+      var socket = io.connect(url); // Connect to the server
+
+      // This code runs when a new message is received
+      socket.on("new_message", function (data) {
+        // Reload the page to show the new message
+        location.reload();
+      });
+
+      // This code runs when the delete button is clicked
+      $("form").submit(function (event) {
+        // Prevent the form from submitting
+        event.preventDefault();
+
+        // Submit the form using AJAX
+        $.ajax({
+          type: $(this).attr("method"),
+          url: $(this).attr("action"),
+          success: function () {
+            // Emit a message to the server indicating that a message was deleted
+            socket.emit("message_deleted");
+          },
+        });
+      });
+    });
+  </script>
+</html>
